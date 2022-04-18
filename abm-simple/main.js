@@ -1,9 +1,9 @@
 class ToDo {
-	constructor(id, type, info, success = false) {
+	constructor(id, type, info, sucess = false) {
 		this.id = id;
 		this.type = type;
 		this.info = info;
-		this.success = success;
+		this.sucess = sucess;
 	}
 
 	getElement() {
@@ -18,7 +18,7 @@ class ToDo {
 		divCheck.classList.add("divCheck");
 		check.type = "checkbox";
 		check.id = `${this.id}`;
-		if (this.success) check.checked = true;
+		if (this.sucess) check.checked = true;
 		check.addEventListener("click", completeToDo);
 		divCheck.appendChild(check);
 		element.appendChild(icon);
@@ -28,7 +28,7 @@ class ToDo {
 	}
 
 	changeState() {
-		this.success = !this.success;
+		this.sucess = !this.sucess;
 	}
 }
 
@@ -48,6 +48,7 @@ function buildToDo() {
 	if (info) listToDo.push(new ToDo(id, icon, info));
 	if (!info) alert("No se ha ingresado nada!!!");
 	myInput.value = "";
+	uploadToDo();
 	showToDos();
 }
 
@@ -85,6 +86,25 @@ function load() {
 		copiarDB(r);
 		showToDos();
 	})
+	.catch((e) => console.log(e));
+}
+
+function uploadToDo() {
+	upload(listToDo[listToDo.length - 1]);
+}
+
+function upload(toDo) {
+	console.log(toDo);
+	fetch(url, {
+		headers: {
+      		'Accept': 'application/json',
+      		'Content-Type': 'application/json'
+	    },
+	    method: "POST",
+	    body: JSON.stringify(toDo)
+	})
+	.then((response) => { return response.json(); })
+	.then((r) => console.log(r))
 	.catch((e) => console.log(e));
 }
 

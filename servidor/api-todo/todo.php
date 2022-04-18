@@ -29,32 +29,26 @@
 	// Add a new todo into database
 	if ($api == 'POST') {
 
-	  // $name = $todo->test_input($_POST['name']);
-	  // $email = $todo->test_input($_POST['email']);
-	  // $phone = $todo->test_input($_POST['phone']);
+		$input = file_get_contents("php://input");
+ 		$arr = json_decode($input,true);
+		$info = $arr['info'];
+		$icon = $arr['type'];
+		$sucess = $arr['sucess'];
 
-		$info = $_POST['info'];
-		$icon = $_POST['icon'];
-		$sucess = $_POST['sucess'];
-
-	  if ($todo->insert($info, $ico, $sucess)) {
+	  if ($todo->insert($info, $icon, $sucess)) {
 	    echo $todo->message('todo added successfully!',false);
 	  } else {
-	    echo $todo->message('Failed to add an todo!',true);
+	   echo $todo->message('Failed to add an todo!',true);
 	  }
 	}
 
 	// Update an todo in database
 	if ($api == 'PUT') {
-	  parse_str(file_get_contents('php://input'), $post_input);
-
-	  // $name = $todo->test_input($post_input['name']);
-	  // $email = $todo->test_input($post_input['email']);
-	  // $phone = $todo->test_input($post_input['phone']);
-
-	  $info = $post_input['info'];
-	  $icon = $post_input['icon'];
-	  $sucess = $post_input['sucess'];
+		$input = file_get_contents("php://input");
+	 	$arr = json_decode($input,true);
+		$info = $arr['info'];
+		$icon = $arr['type'];
+		$sucess = $arr['sucess'];
 
 	  if ($id != null) {
 	    if ($todo->update($info, $ico, $sucess, $id)) {
