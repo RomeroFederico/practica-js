@@ -10,7 +10,16 @@
   <body>
     <div id = "divContenedor">
 
-      <h1 id = "title">TO DO ABM</h1>
+      <div id = "divTitle">
+        <h1 id = "title">TO DO ABM</h1>
+        <div id = "divOptions">
+          <H3>Opciones</H3>
+          <div class = "divBotonera">
+            <button id = "idLoad">CARGAR</button>
+            <button id = "idSave">GUARDAR</button>
+          </div>
+        </div>
+      </div>
 
       <div id = "divInput">
 
@@ -21,7 +30,7 @@
           <option value = "🎢">🎢 Diversion</option>
           <option value = "📄" selected>📄 Sin Clasificacion</option>
         </select>
-        <button id = "btnAgregar">Agregar</button>
+        <button id = "btnAgregar">AGREGAR</button>
 
       </div>
 
@@ -35,6 +44,23 @@
 
       <div id = "divList">
 
+      </div>
+
+      <div id = "divIndex">
+        <div class = "btnIndex enabled" id = "firstPage">
+          &#60&#60
+        </div>
+        <div class = "btnIndex" id = "prevPage">
+          &#60
+        </div>
+        <div class = "btnIndex" id = "currentPage">
+        </div>
+        <div class = "btnIndex" id = "nextPage">
+          &#62
+        </div>
+        <div class = "btnIndex" id = "LastPage">
+          &#62&#62
+        </div>
       </div>
 
     </div>
