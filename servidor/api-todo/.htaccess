@@ -1,0 +1,8 @@
+#Turn Rewrite Engine On
+RewriteEngine On
+
+#Remove .php extension form todo.php
+RewriteRule ^todo/?$ todo.php [NC,L]
+
+#Rewrite URL
+RewriteRule ^todo/([0-9]+)/?$ todo.php?id=$1 [NC,L]

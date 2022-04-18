@@ -1,9 +1,9 @@
 class ToDo {
-	constructor(id, type, info) {
+	constructor(id, type, info, success = false) {
 		this.id = id;
 		this.type = type;
 		this.info = info;
-		this.success = false;
+		this.success = success;
 	}
 
 	getElement() {
@@ -37,6 +37,8 @@ const selectIcon = document.getElementById("selectIcon");
 const btnAgregar = document.getElementById("btnAgregar");
 const divList = document.getElementById("divList");
 
+const url = "http://localhost/repositorios/practica-js/servidor/api-todo/todo";
+
 const listToDo = [];
 
 function buildToDo() {
@@ -51,7 +53,7 @@ function buildToDo() {
 
 function completeToDo(e) {
 	let id = e.target.id;
-	listToDo[id].changeState();
+	listToDo[id - 1].changeState();
 	showToDos();
 }
 
@@ -62,9 +64,29 @@ function showToDos() {
 		divList.appendChild(listToDo[i].getElement());
 }
 
+function copiarDB(arr) {
+	let length = arr.length;
+	console.table(arr);
+	for(let i = 0; i < length; i++) {
+		let todo = arr[i];
+		listToDo.push(new ToDo(todo.id, todo.icon, todo.info, todo.sucess));
+	}
+}
+
 function inicializar() {
 	btnAgregar.addEventListener("click", buildToDo);
 	showToDos();
 }
 
+function load() {
+	fetch(url)
+	.then((response) => { return response.json(); })
+	.then((r) => {	
+		copiarDB(r);
+		showToDos();
+	})
+	.catch((e) => console.log(e));
+}
+
+load();
 inicializar();
