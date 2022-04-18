@@ -1,0 +1,67 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#divContenedor {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: column;
+
+	height: 100vh;
+}
+
+#divInput {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	height: 5vh;
+	width: 80%;
+}
+
+#inputTodo {
+	width: 50%;
+	height: 2rem;
+	padding: 0;
+}
+
+#selectIcon {
+	width: 15rem;
+	height: 2rem;
+}
+
+#btnAgregar {
+	width: 5rem;
+	height: 2rem;
+}
+
+#divInfo {
+	width: 65%;
+	height: 2rem;
+	display: grid;
+	grid-template-columns: 10% 75% 15%;
+	align-items: center;
+	text-align: center;
+	font-weight: 700;
+}
+
+#divList {
+	min-height: 50vh;
+	width: 65%;
+}
+
+#divList div {
+	display: grid;
+	grid-template-columns: 10% 75% 15%;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	margin: 5px;
+}
+
+.divCheck {
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+}

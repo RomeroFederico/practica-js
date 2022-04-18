@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ABM TO DO LIST</title>
+    <script type="text/javascript" src = "main.js" async></script>
+    <link rel = "stylesheet" type = "text/css" href = "./styles.css">
+  </head>
+  <body>
+    <div id = "divContenedor">
+
+      <h1 id = "title">TO DO ABM</h1>
+
+      <div id = "divInput">
+
+        <input type = "text" name = "myInput" id = "inputTodo" placeholder = "Agregar nuevo to do">
+        <select id = "selectIcon">
+          <option value = "🩺">🩺 Salud</option>
+          <option value = "👔">👔 Trabajo</option>
+          <option value = "🎢">🎢 Diversion</option>
+          <option value = "📄" selected>📄 Sin Clasificacion</option>
+        </select>
+        <button id = "btnAgregar">Agregar</button>
+
+      </div>
+
+      <div id = "divInfo">
+        
+        <span>Categoria</span>
+        <span>Info</span>
+        <span>Completado</span>
+
+      </div>
+
+      <div id = "divList">
+
+      </div>
+
+    </div>
+  </body>
+</html>
